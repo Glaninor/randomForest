@@ -1,6 +1,22 @@
 library(randomForest)
 library(ROCR)
 
+ntrain = sample(nrow(all.judge),floor(0.7*nrow(all.judge)),replace=FALSE)
+train = all.judge[ntrain,]
+test = all.judge[-ntrain,]
+train[which(is.na(train[1,]))]
+train <- train[,-which(names(train)=="mcq240y")]
+train <- train[,-which(names(train)=="mcq240r")]
+train <- train[,-which(names(train)=="mcq240k")]
+train <- train[,-which(names(train)=="mcq240i")]
+train <- train[,-which(names(train)=="mcq240d")]
+train <- train[,-which(names(train)=="mcq230d")]
+test <- test[,-which(names(test)=="mcq240y")]
+test <- test[,-which(names(test)=="mcq240r")]
+test <- test[,-which(names(test)=="mcq240k")]
+test <- test[,-which(names(test)=="mcq240i")]
+test <- test[,-which(names(test)=="mcq240d")]
+test <- test[,-which(names(test)=="mcq230d")]
 rf.train.x <- as.matrix(train[,3:1278])
 rf.train.y <- as.matrix(train[,2])
 rf.test.x <- as.matrix(test[,3:1278])
