@@ -41,3 +41,4 @@ rf.prediction.auc@y.values
 [1] 0.7530366
 
 rf.importance.plot <- varImpPlot(rf.model,sort=TRUE,n.var=40)
+
