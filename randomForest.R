@@ -22,10 +22,10 @@ rf.train.y <- as.matrix(train[,2])
 rf.test.x <- as.matrix(test[,3:1278])
 rf.test.y <- as.matrix(test[,2])
 
-rf.model <- randomForest(x=rf.train.x,y=rf.train.y,ntree=500,importance=TRUE,proximity=TRUE)
+rf.model <- randomForest(x=rf.train.x,y=rf.train.y,ntree=500,mtry=500,importance=TRUE,proximity=TRUE)
 print(rf.model)
 Call:
- randomForest(x = rf.train.x, y = rf.train.y, ntree = 500, importance = TRUE,      proximity = TRUE) 
+ randomForest(x = rf.train.x, y = rf.train.y, ntree = 500, mtry=500,       importance = TRUE,proximity = TRUE) 
                Type of random forest: regression
                      Number of trees: 500
 No. of variables tried at each split: 425
